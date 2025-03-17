@@ -48,18 +48,21 @@ public class LoginSteps {
     @Then("I should see a welcome message {string}")
     public void iShouldSeeAWelcomeMessage(String message) {
         assertEquals(driver.findElement(By.xpath("/html/body/article[1]/article/a/div[2]/strong")).getText(), message);
-        driver.quit();
     }
 
     @Then("I should see an error message {string}")
     public void iShouldSeeAnErrorMessage(String message) {
         WebElement loginForm = driver.findElement(By.xpath("/html/body/article[2]"));
         assertTrue(loginForm.getAttribute("class").contains("show"));
-        driver.quit();
     }
 
     @And("Wait for {int}")
     public void waitFor(int arg0) throws InterruptedException {
         Thread.sleep(3000);
+    }
+
+    @Then("close")
+    public void close() {
+        driver.quit();
     }
 }

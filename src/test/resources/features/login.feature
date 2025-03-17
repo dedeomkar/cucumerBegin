@@ -19,6 +19,7 @@ Feature: User Login
     And Wait for 5000
     Then I should be redirected to the dashboard
     And I should see a welcome message "mblaze804"
+    Then close
 
   Scenario: Failed Login
     Given I am on the login page
@@ -28,3 +29,4 @@ Feature: User Login
     And I click the login button
     And Wait for 5000
     Then I should see an error message "Invalid credentials"
+    Then close
