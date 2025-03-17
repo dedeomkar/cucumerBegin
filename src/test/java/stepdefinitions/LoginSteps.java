@@ -57,8 +57,8 @@ public class LoginSteps {
     }
 
     @And("Wait for {int}")
-    public void waitFor(int arg0) throws InterruptedException {
-        Thread.sleep(3000);
+    public void waitFor(int time) throws InterruptedException {
+        Thread.sleep(time);
     }
 
     @Then("close")
