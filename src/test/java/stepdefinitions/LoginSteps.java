@@ -24,11 +24,10 @@ public class LoginSteps {
         ChromeOptions options = new ChromeOptions();
         this.driver = new RemoteWebDriver(new URL("http://localhost:4444"), options);
         driver.get("https://www.boomplay.com/");
-        //
     }
 
     @When("I enter credentials {string} and {string}")
-    public void iEnterCredentials(String username, String password) throws InterruptedException {
+    public void iEnterCredentials(String username, String password) {
         driver.findElement(By.xpath("/html/body/article[1]/article/div/div/strong/button[1]")).click();
         driver.findElement(By.xpath("/html/body/article[2]/form[1]/div[1]/label[2]")).click();
         driver.findElement(By.xpath("/html/body/article[2]/form[1]/div[3]/label/input")).sendKeys(username);
@@ -51,8 +50,8 @@ public class LoginSteps {
         assertEquals(driver.findElement(By.xpath("/html/body/article[1]/article/a/div[2]/strong")).getText(), message);
     }
 
-    @Then("I should see an error message {string}")
-    public void iShouldSeeAnErrorMessage(String message) {
+    @Then("I should see an error message")
+    public void iShouldSeeAnErrorMessage() {
         WebElement loginForm = driver.findElement(By.xpath("/html/body/article[2]"));
         assertTrue(loginForm.getAttribute("class").contains("show"));
     }

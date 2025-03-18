@@ -28,5 +28,5 @@ Feature: User Login
     And Wait for 2000
     And I click the login button
     And Wait for 5000
-    Then I should see an error message "Invalid credentials"
+    Then I should see an error message
     Then close
