@@ -24,6 +24,7 @@ public class LoginSteps {
         ChromeOptions options = new ChromeOptions();
         this.driver = new RemoteWebDriver(new URL("http://localhost:4444"), options);
         driver.get("https://www.boomplay.com/");
+        //
     }
 
     @When("I enter credentials {string} and {string}")
