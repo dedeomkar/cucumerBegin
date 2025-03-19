@@ -7,6 +7,7 @@ import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
@@ -21,8 +22,11 @@ public class LoginSteps {
 
     @Given("I am on the login page")
     public void iAmOnTheLoginPage() throws MalformedURLException {
+        System.setProperty("webdriver.http.factory", "jdk-http-client");
+        System.setProperty("webdriver.chrome.driver", "./driver/chromedriver");
         ChromeOptions options = new ChromeOptions();
-        this.driver = new RemoteWebDriver(new URL("http://localhost:4444"), options);
+        options.setBinary("/home/mblaze804/chrome-bin/chrome");
+        this.driver = new ChromeDriver(options);
         driver.get("https://www.boomplay.com/");
     }
 
